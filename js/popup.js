@@ -35,7 +35,6 @@ $('document').ready(function () {
     /* to remove information */
     function remove_it(){
         var element_id = this.id ;
-        console.log('remove ' + element_id );
         var information_name = element_id.substr(0,element_id.length-4);
         var list = JSON.parse(localStorage["saved_data"]);
         for(var i in list){
