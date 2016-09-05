@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Saveit Pasteit</title>
+    <script src="js/google_api_jquery.js"></script>
+    <script src="js/jquery.slimscroll.min.js"></script>
+    <script src="js/clipboard.min.js"></script>
+    <link rel="stylesheet"  type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet"  type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/team-made.css"/>
+</head>
+<body>
+<div class="container">
+    <div id="action-bar">
+        <img src="image/LogoMakr.png"  height="56" style="float: left;">
+        <h3 ><strong>Saveit Pasteit</strong></h3>
+        <button class="btn-primary btn pull-right" id="add-new-form-element"><span><i class="fa fa-plus fa-2x"></i></span></button>
+    </div>
+
+    <!--From for Adding links with their name-->
+    <div class="link-adder-form">
+            <div class="new-input-box">
+                <span><i class="fa fa-hand-o-right fa-2x"></i></span>
+                <input type="text" class="form-control" placeholder="Enter Information Name" name="form-link-name" id="form-link-name" spellcheck="false" autocomplete="off" autofocus>
+            </div>
+            <div class="new-input-box">
+                <span><i class="fa fa-hand-o-right fa-2x"></i></span>
+                <input class="form-control" name="form-link" type="text" placeholder="Enter Text Information" id="form-link" spellcheck="false" autocomplete="off" autofocus>
+            </div>
+            <div>
+                <button class="btn btn-primary" id="Add-it" type="button" style="border-radius: 25px;"><strong>Saveit</strong></button>
+                <button class="btn btn-primary pull-right" id="Cancel" type="button" style="border-radius: 25px;"><strong>Cancel</strong></button>
+            </div>
+    </div>
+
+    <hr>
+
+
+    <div class="saved-links-container">
+    </div>
+
+
+    <div class="saveit-btn-container">
+        <hr>
+        <button type="button" id="saveit-btn" class="btn btn-success btn-group-lg" style="border-radius: 25px; outline: none!important; font-size: 15px;">Saveit</button><br><br>
+    </div>
+
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="text-align: center" id="message"></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--Team_made javascript-->
+<script src="js/popup.js"></script>
+<!-- bootstrap javascript -->
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
