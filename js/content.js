@@ -7,27 +7,31 @@ document.addEventListener("contextmenu", function(event){
     element = event.target;
 });
 
-var input_types = [
+var types = [
     "text",
     "url",
     "search",
     "tel",
     "password",
     "email",
-    "number"
+    "number",
+    "textarea"
 ];
-
 
 function getCaretPosition(element){
     var caretPos = 0;
-    if($.inArray(element.type, input_types) >= 0){
-        /*  element.selectionStart for type email give error because their is bug in chrome */
+
+    /* Chrome  and Firefox support */
+    if(!document.selection && $.inArray(element.type, types) >= 0){
+        /*  element.selectionStart for type email give error because their is a bug in chrome */
         if( element.type == 'email' || element.type == 'number' ){
-            return 0;
+            caretPos = 0 ;
+        }else{
+            caretPos = element.selectionStart;
         }
-        caretPos = element.selectionStart;
     }
     else {
+        /* IE support */
         if(document.selection){
             element.focus();
             var sel = document.selection.createRange();
