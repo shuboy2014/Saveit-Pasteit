@@ -4,6 +4,7 @@
 var element = null ;
 var element_id = null;
 var element_aria_label = null;
+
 document.addEventListener("contextmenu", function(event){
     element = event.target;
     element_id = $(event.target).attr('id');
@@ -53,20 +54,27 @@ $(document).ready(function (){
         var set_value =  response.requested_link;
         var first_part = initvalue.substr(0, caretposition);
         var last_part = initvalue.substr(caretposition);
-        if(element.type == 'email' || element.type =='number'){
-            element.value = response.requested_link + initvalue;
-        } else {
+
+        if(element.type == 'email' || element.type == 'number') {
+            if(element_id) {
+                $("#" + element_id).sendkeys(set_value + last_part);
+            }else if(element_aria_label){
+                $("[aria-label='"+element_aria_label+"']").sendkeys(set_value + last_part);
+            }else{
+                element.value = first_part + set_value + last_part ;
+            }
+        }else {
             var selected_text = element.value.substring(element.selectionStart, element.selectionEnd);
-            if ( selected_text != ''){
+            if (selected_text != '') {
                 last_part = initvalue.substr(caretposition + selected_text.length);
             }
-            element.value = first_part + set_value.substr(0,set_value.length-1) ;
-            if(element_id) {
+            element.value = first_part + set_value.substr(0, set_value.length - 1);
+            if (element_id) {
                 $("#" + element_id).sendkeys(set_value.substr(set_value.length - 1));
-            }else if(element_aria_label){
-                $("[aria-label="+ element_aria_label +"]").sendkeys(set_value.substr(set_value.length - 1));
-            }else{
-                element.value +=  set_value.substr(set_value.length - 1);
+            } else if (element_aria_label) {
+                $("[aria-label='" + element_aria_label + "']").sendkeys(set_value.substr(set_value.length - 1));
+            } else {
+                element.value += set_value.substr(set_value.length - 1);
             }
             element.value += last_part;
         }
