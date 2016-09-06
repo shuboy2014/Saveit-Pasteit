@@ -6,10 +6,10 @@
 
 if(! localStorage["saved_data"]) {
     var links = [
-        {"name":'Gmail Email Id',"link":'username@gmail.com'},
         {"name":'Personal Website Link',"link":'https://www.******.com'},
         {"name":'Facebook Profile Link',"link":'https://www.facebook.com/username'},
-        {"name":'Linkedin Profile Link',"link":'https://www.linkedin.com/username'}
+        {"name":'Linkedin Profile Link',"link":'https://www.linkedin.com/username'},
+        {"name":'Email Address', "link" : 'username@domain.com'}
     ];
     localStorage.setItem("saved_data", JSON.stringify(links));
 }

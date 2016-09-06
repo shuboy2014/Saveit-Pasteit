@@ -66,7 +66,7 @@ $('document').ready(function () {
         var div_id = object["name"] + "-div" ;
         var remove_btn = object["name"]+"-btn" ;
         var copy_element_id = object["name"];
-        var element = '<div  class="container-fluid" id="'+slugify(div_id)+'"><p><strong>'+object["name"]+'</strong></p><div class="saved-input-box"><span><i class="fa fa-hand-o-right fa-2x"></i></span><input type="text" class="form-control" id="'+object["name"]+'" value="'+object["link"]+'" autocomplete="off" spellcheck="false"><button><span class="copy" id="'+ copy_element_id +'"><i class="fa fa-clipboard "></i></span></button><button><span  class="remove" id="' + remove_btn +'"><i class="fa fa-times"></i></span></button></div><br></div>';
+        var element = '<div  class="container-fluid" id="'+slugify(div_id)+'"><p><strong>'+object["name"]+'</strong></p><div class="saved-input-box"><span><i class="fa fa-hand-o-right fa-2x"></i></span><input type="text" class="form-control" id="'+object["name"]+'" value="'+object["link"]+'" autocomplete="off" spellcheck="false"><button><span class="copytext" id="'+ copy_element_id +'"><i class="fa fa-clipboard "></i></span></button><button><span  class="remove" id="' + remove_btn +'"><i class="fa fa-times"></i></span></button></div><br></div>';
         $('.saved-links-container').append(element);
     }
 
@@ -86,7 +86,7 @@ $('document').ready(function () {
 
     $('.remove').on( "click", remove_it);
 
-    $('.copy').on('click', copy_it);
+    $('.copytext').on('click', copy_it);
 
     /* Add and Store new information created */
     $('#Add-it').click(function () {
@@ -106,7 +106,7 @@ $('document').ready(function () {
             var remove_btn = object["name"]+"-btn" ;
             var copy_btn = object["name"]+"-btn" ;
             localStorage.setItem('saved_data', JSON.stringify(array));
-            var element = '<div  class="container-fluid" id="'+slugify(div_id)+'"><p><strong>'+object["name"]+'</strong></p><div class="saved-input-box"><span><i class="fa fa-hand-o-right fa-2x"></i></span><input type="text" class="form-control" id="'+object["name"]+'" value="'+object["link"]+'" autocomplete="off" spellcheck="false"><button><span class="copy" id="'+ copy_element_id +'"><i class="fa fa-clipboard "></i></span></button><button><span  class="remove" id="' + remove_btn +'"><i class="fa fa-times"></i></span></button></div><br></div>';
+            var element = '<div  class="container-fluid" id="'+slugify(div_id)+'"><p><strong>'+object["name"]+'</strong></p><div class="saved-input-box"><span><i class="fa fa-hand-o-right fa-2x"></i></span><input type="text" class="form-control" id="'+object["name"]+'" value="'+object["link"]+'" autocomplete="off" spellcheck="false"><button><span class="copytext" id="'+ copy_element_id +'"><i class="fa fa-clipboard "></i></span></button><button><span  class="remove" id="' + remove_btn +'"><i class="fa fa-times"></i></span></button></div><br></div>';
             $('.saved-links-container').prepend(element);
             $('.link-adder-form').slideToggle();
             $('#add-new-form-element').prop('disabled', false);
