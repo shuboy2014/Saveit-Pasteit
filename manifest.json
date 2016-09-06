@@ -27,7 +27,7 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["js/google_api_jquery.js","js/content.js"]
+      "js": ["js/google_api_jquery.js","js/bililiteRange.js" ,"js/jquery.sendkeys.js","js/content.js"]
     }
   ],
 
