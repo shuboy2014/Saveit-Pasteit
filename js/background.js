@@ -5,13 +5,21 @@
 /* init localStorage for saved_data*/
 
 if(! localStorage["saved_data"]) {
-    var links = [
-        {"name":'Personal Website Link',"link":'https://www.******.com'},
-        {"name":'Facebook Profile Link',"link":'https://www.facebook.com/username'},
-        {"name":'Linkedin Profile Link',"link":'https://www.linkedin.com/username'},
-        {"name":'Email Address', "link" : 'username@domain.com'}
+    var data = [
+        { "Id" : "12" , "Name" : "Personal Website Link" , "Link" : "https://name.com" },
+        { "Id" : "9" , "Name" : "Reddit Profile" , "Link" : "https://reddit.com/username" },
+        { "Id" : "8"  , "Name" : "Youtube Channel" , "Link" : "https://youtube.com/channelName" },
+        { "Id" : "7"  , "Name" : "Wordpress website" , "Link" : "https://username.wordpress.com" },
+        { "Id" : "10"  , "Name" : "Contact Number" , "Link" : "9999999999" },
+        { "Id" : "6"  , "Name" : "Yahoo Email Id" , "Link" : "username@yahoo.com" },
+        { "Id" : "4"  , "Name" : "Gmail Email Id" , "Link" : "username@gmail.com" },
+        { "Id" : "11"  , "Name" : "Stackoverflow Profile Link" , "Link" : "https://stackoverflow.com/username" },
+        { "Id" : "3"  , "Name" : "Dropbox Resume Link" , "Link" : "https://dropbox.com/resume.pdf" },
+        { "Id" : "5"  , "Name" : "Github Profile Link" , "Link" : "https://github.com/username" },
+        { "Id" : "2"  , "Name" : "Linkedin Profile Link" , "Link" : "https://linkedin.con/username" },
+        { "Id" : "1"  , "Name" : "Facebook Profile Link" , "Link" : "https://facebook.com/username" }
     ];
-    localStorage.setItem("saved_data", JSON.stringify(links));
+    localStorage.setItem("saved_data", JSON.stringify(data));
 }
 
 /*function to init contextMenus */
@@ -24,8 +32,8 @@ function ready_context_menu() {
     for (var i in list) {
         var object = list[i];
         chrome.contextMenus.create({
-            id: object["name"],
-            title: object["name"],
+            id: object["Name"],
+            title: object["Name"],
             contexts: ['editable']
         });
     }
@@ -47,12 +55,12 @@ chrome.contextMenus.onClicked.addListener( function(info, tab) {
     var list = JSON.parse(localStorage.getItem('saved_data'));
     for (var i in list) {
         var object = list[i];
-        if (info.menuItemId == object["name"]) {
+        if (info.menuItemId == object["Name"]) {
             chrome.tabs.query({
                 "currentWindow": true,
                 "active": true
             }, function (tabs) {
-                chrome.tabs.sendMessage(tabs[0].id, {"requested_link": object["link"]});
+                chrome.tabs.sendMessage(tabs[0].id, {"requested_link": object["Link"]});
             });
             break;
         }
