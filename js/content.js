@@ -55,6 +55,7 @@ $(document).ready(function (){
         var first_part = initvalue.substr(0, caretposition);
         var last_part = initvalue.substr(caretposition);
 
+        /* when element type is email or number */
         if(element.type == 'email' || element.type == 'number') {
             if(element_id) {
                 $("#" + element_id).sendkeys(set_value + last_part);
@@ -64,10 +65,16 @@ $(document).ready(function (){
                 element.value = first_part + set_value + last_part ;
             }
         }else {
+            /* when element type is other than email or number */
+            
+            /* selected text in input field */
             var selected_text = element.value.substring(element.selectionStart, element.selectionEnd);
+            
+            /* if  text selected */
             if (selected_text != '') {
                 last_part = initvalue.substr(caretposition + selected_text.length);
             }
+            
             element.value = first_part + set_value.substr(0, set_value.length - 1);
             if (element_id) {
                 $("#" + element_id).sendkeys(set_value.substr(set_value.length - 1));
