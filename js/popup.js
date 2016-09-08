@@ -3,48 +3,65 @@
  */
 
 /* BoilerPlate icons id as index */
-var id_icon = [
-    "facebook-square",
-    "linkedin-square",
-    "dropbox",
-    "envelope",
-    "github-alt",
-    "yahoo",
-    "wordpress",
-    "youtube-square",
-    "reddit",
-    "mobile",
-    "stack-overflow",
-    "hand-o-right",
-    "play-circle",
-    "skype",
-    "google-plus-official",
-    "twitter",
-    "instagram",
-    "whatsapp",
-    "slack",
-    "pinterest",
-    "th-large",
-    "align-left"
-];
+var id_to_image = {
+    "1" : "facebook-square",
+    "2" : "linkedin-square",
+    "3" : "dropbox",
+    "4" : "envelope",
+    "5" : "github-alt",
+    "6" : "yahoo",
+    "7" : "wordpress",
+    "8" : "youtube-square",
+    "9" : "reddit",
+    "10" : "mobile",
+    "11" : "stack-overflow",
+    "12" : "hand-o-right",
+    "13" : "play-circle",
+    "14" : "skype",
+    "15" : "google-plus-official",
+    "16" : "twitter",
+    "17" : "instagram",
+    "18" : "whatsapp",
+    "19" : "slack",
+    "20" : "pinterest",
+    "21" : "th-large",
+    "22" : "align-left"
+};
+
+var image_to_id = {
+    "facebook-square" : "1",
+    "linkedin-square" : "2",
+    "dropbox" : "3",
+    "envelope" : "4",
+    "github-alt" : "5",
+    "yahoo" : "6",
+    "wordpress" : "7",
+    "youtube-square" : "8",
+    "reddit" : "9",
+    "mobile" : "10",
+    "stack-overflow" : "11",
+    "hand-o-right" : "12",
+    "play-circle" : "13",
+    "skype" : "14",
+    "google-plus-official" : "15",
+    "twitter" : "16",
+    "instagram" : "17",
+    "whatsapp" : "18",
+    "slack" : "19",
+    "pinterest" : "20",
+    "th-large" : "21",
+    "align-left" : "22"
+};
 
 $('document').ready(function () {
 
     function get_id(){
         var class_attr = $('#new-link-i').attr('class');
         var image_name = "",i;
-
         for(i=6;i<class_attr.length-19;i++){
             image_name+=class_attr[i];
         }
-        console.log(image_name);
-        for(i=0;i<21;i++){
-            if(image_name == id_icon[i]){
-                console.log("index : " + i);
-                return (i+1).toString();
-            }
-        }
-        return "12";
+        return image_to_id[image_name];
     }
     
     function copyTextToClipboard(text) {
@@ -102,6 +119,7 @@ $('document').ready(function () {
         var link = $('input[name="new-link"]').val();
         if(link_name && link) {
             var array = JSON.parse(localStorage.getItem("saved_data"));
+
             var object = {"Id": get_id(),"Name": link_name, 'Link': link} ;
             // TO check newly added information is already present or not
             for(var i=0;i<array.length;++i){
@@ -110,7 +128,6 @@ $('document').ready(function () {
                     return;
                 }
             }
-            console.log(object);
             array.push(object);
             localStorage.clear();
             localStorage.setItem('saved_data', JSON.stringify(array));
@@ -123,19 +140,18 @@ $('document').ready(function () {
 
     var list = JSON.parse(localStorage.getItem("saved_data"));
     list.reverse();
-    for(var i in list) {
+    for(var i=0;i<list.length;++i) {
         var object = list[i];
         var div_id = object["Name"] + "-div" ;
         var remove_btn = object["Name"]+"-btn" ;
         var copy_element_id = object["Name"];
-        var element = '<div  class="container-fluid" id="'+slugify(div_id)+'"><p><strong>'+object["Name"]+'</strong></p><div class="saved-input-box"><span><i class="fa fa-'+ id_icon[parseInt(object["Id"])-1] +' fa-2x"></i></span><input type="text" class="form-control" id="'+object["Name"]+'" value="'+object["Link"]+'" autocomplete="off" spellcheck="false"><button><span class="copytext" id="'+ copy_element_id +'"><i class="fa fa-clipboard "></i></span></button><button><span  class="remove" id="' + remove_btn +'"><i class="fa fa-times"></i></span></button></div><br></div>';
+        var element = '<div  class="container-fluid" id="'+slugify(div_id)+'"><p><strong>'+object["Name"]+'</strong></p><div class="saved-input-box"><span><i class="fa fa-'+ id_to_image[object["Id"]] +' fa-2x"></i></span><input type="text" class="form-control" id="'+object["Name"]+'" value="'+object["Link"]+'" autocomplete="off" spellcheck="false"><button><span class="copytext" id="'+ copy_element_id +'"><i class="fa fa-clipboard "></i></span></button><button><span  class="remove" id="' + remove_btn +'"><i class="fa fa-times"></i></span></button></div><br></div>';
         $('.saved-links-container').append(element);
     }
 
     $('.change-image').on("click",function () {
-        console.log(get_id());
-        $('#new-name-i').attr("class", "fa fa-"+ id_icon[parseInt(this.id)-1]+" fa-2x change-image");
-        $('#new-link-i').attr("class", "fa fa-"+ id_icon[parseInt(this.id)-1]+" fa-2x change-image");
+        $('#new-name-i').attr("class", "fa fa-"+ id_to_image[this.id] +" fa-2x change-image");
+        $('#new-link-i').attr("class", "fa fa-"+ id_to_image[this.id] +" fa-2x change-image");
     });
     
     $('#save-add-another').on("click",function () {
@@ -168,6 +184,7 @@ $('document').ready(function () {
         save_btn.prop('disabled',true);
         var list = JSON.parse(localStorage["saved_data"]);
         var i;
+
         for(i=0;i<list.length;++i){
             if(document.getElementById(list[i]["Name"]).value == ''){
                 alert("Oops ," + list[i]["Name"] +" information is not filled !!");
@@ -178,14 +195,11 @@ $('document').ready(function () {
         }
 
         for(i=0;i<list.length;++i){
-            var object = {
-                "Id":get_id(),
-                "Name":list[i]["Name"] ,
-                "Link": document.getElementById(list[i]["Name"]).value
-            };
-            list[i]=object;
+            list[i]["Link"]= document.getElementById(list[i]["Name"]).value ;
         }
+
         localStorage.clear();
+        console.log(list);
         localStorage.setItem("saved_data",JSON.stringify(list));
         chrome.runtime.sendMessage({"task":"saveit"});
         save_btn.prop('disabled',false);
