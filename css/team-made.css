@@ -3,7 +3,7 @@ body
     width:520px;
     overflow: hidden;
     background-color: white;
-    max-height: 750px;
+    max-height: 850px;
     margin:0;
 }
 
@@ -49,49 +49,6 @@ hr {
     outline: none!important;
 }
 
-/* New link adder form  css */
-.link-adder-form
-{
-    display:none;
-    padding:0;
-    margin:0;
-}
-
-.new-input-box{
-    border:1px solid lightblue;
-    margin-top:10px;
-    margin-bottom:10px;
-    height:38px;
-    width:100%;
-    border-radius: 25px;
-}
-
-.new-input-box>span,
-.new-input-box>input{
-    float: left;
-    border:none;
-    outline:none!important;
-}
-
-.new-input-box>span{
-    padding-top:5px;
-    padding-left:10px;
-    padding-right:10px;
-}
-
-.new-input-box>input{
-    width:440px;
-    padding-left:10px;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-    outline:none!important;
-}
-
-.link-adder-form button{
-    outline:none!important;
-}
-
-
 /* Saved Link css */
 
 .slimScrollDiv{
@@ -118,7 +75,7 @@ hr {
 }
 
 .saved-input-box .form-control{
-    width:345px;
+    width:340px;
 }
 
 .saved-links-container .container-fluid{
@@ -142,3 +99,72 @@ hr {
     background-color: #fff;
     color:black;
 }
+
+/* new link form */
+
+.modal-body{
+    height:250px;
+    margin-left:0;
+}
+
+.logo-option{
+    padding: 5px;
+    height:100px;
+    background-color: #F4F6F7;
+    border-radius: 25px;
+    border:1px solid gray;
+}
+
+.logo-option>ul{
+    padding-left:10px;
+}
+
+.links-logo{
+    list-style: none;
+    margin:0;
+}
+
+.links-logo-list{
+    float: left;
+    padding:7px;
+    margin:0;
+}
+
+.links-logo-list>span{
+    cursor: pointer;
+}
+
+
+.new-link,
+.new-name{
+    border:1px solid lightblue;
+    margin-top:10px;
+    margin-bottom:10px;
+    height:38px;
+    width:100%;
+    border-radius: 25px;
+}
+
+.new-name>span,
+.new-name>input,
+.new-link>span,
+.new-link>input{
+    float: left;
+}
+
+.new-name>span,
+.new-link>span{
+    padding-top:5px;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+
+.new-link>input,
+.new-name>input{
+    width:400px;
+    border:none;
+    height: 36px;
+    outline: none!important;
+}
+
