@@ -9,12 +9,12 @@
 2. How Extension looks and Functionality ?
        * Front UI            
        * Add new Fields
-       * Copy Links
+       * Copy Links<br>
         ![Imgur](http://i.imgur.com/scNeLwZ.gif)
 
 3. How to use this extension ?
-   For a demo purpose let you are applying for job and you need to fill the google forms provided by company , here i attach the gif 
-   below :
+   For a demo purpose let you are applying for job and you need to fill the google forms provided by company , here i attach 
+   the gif below :<br>
         ![Imgur](http://i.imgur.com/W1WViNz.gif)
 
 
