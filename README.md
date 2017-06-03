@@ -9,7 +9,7 @@
 2. #### How Extension looks and Functionality ? <br>
    * Front UI            
    * Add new Fields
-   * Copy Links
+   * Copy Links<br>
     ![Imgur](http://i.imgur.com/scNeLwZ.gif)
 
 3. #### How to use this extension ? <br>
