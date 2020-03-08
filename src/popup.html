@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Saveit Pasteit</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="container">
+    <div id="action-bar">
+        <img src="assets/image/logo.png" height="56" style="float: left;">
+        <h3><strong>Saveit Pasteit</strong></h3>
+        <button class="btn-primary btn pull-right" id="add-new-information-btn"><span><i
+                class="fa fa-plus fa-2x"></i></span></button>
+    </div>
+    <div id="new-info-form-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img src="assets/image/logo.png" height="30" style="float: left;">
+                    <h4 class="modal-title" style="padding-left: 150px;">New Information Form</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="logo-option">
+                        <ul class="links-logo">
+                            <li class="links-logo-list"><span><i class="fa fa-facebook-square fa-2x  change-image"
+                                                                 id="1"></i></span></li>
+                            <li class="links-logo-list"><span><i class="fa fa-linkedin-square fa-2x change-image"
+                                                                 id="2"></i></span></li>
+                            <li class="links-logo-list"><span><i class="fa fa-dropbox fa-2x change-image"
+                                                                 id="3"></i></span></li>
+                            <li class="links-logo-list"><span><i class="fa fa-envelope fa-2x change-image"
+                                                                 id="4"></i></span></li>
+                            <li class="links-logo-list"><span><i class="fa fa-github-alt fa-2x change-image" id="5"></i></span>
+                            </li>
+                            <li class="links-logo-list"><span><i class="fa fa-yahoo fa-2x change-image"
+                                                                 id="6"></i></span></li>
+                            <li class="links-logo-list"><span><i class="fa fa-wordpress fa-2x change-image" id="7"></i></span>
+                            </li>
+                            <li class="links-logo-list"><span><i class="fa fa-youtube-square fa-2x change-image"
+                                                                 id="8"></i></span></li>
+                            <li class="links-logo-list"><span><i class="fa fa-reddit fa-2x change-image"
+                                                                 id="9"></i></span></li>
+                            <li class="links-logo-list"><span><i class="fa fa-mobile fa-2x change-image"
+                                                                 id="10"></i></span></li>
+                            <li class="links-logo-list"><span><i class="fa fa-stack-overflow fa-2x change-image"
+                                                                 id="11"></i></span></li>
+                            <li class="links-logo-list"><span><i class="fa fa-hand-o-right fa-2x change-image"
+                                                                 id="12"></i></span></li>
+                            <li class="links-logo-list"><span><i class="fa fa-play-circle fa-2x change-image"
+                                                                 id="13"></i></span></li>
+                            <li class="links-logo-list"><span><i class="fa fa-skype fa-2x change-image"
+                                                                 id="14"></i></span></li>
+                            <li class="links-logo-list"><span><i class="fa fa-google-plus-official fa-2x change-image"
+                                                                 id="15"></i></span></li>
+                            <li class="links-logo-list"><span><i class="fa fa-twitter fa-2x change-image"
+                                                                 id="16"></i></span></li>
+                            <li class="links-logo-list"><span><i class="fa fa-instagram fa-2x change-image" id="17"></i></span>
+                            </li>
+                            <li class="links-logo-list"><span><i class="fa fa-whatsapp fa-2x change-image" id="18"></i></span>
+                            </li>
+                            <li class="links-logo-list"><span><i class="fa fa-slack fa-2x change-image"
+                                                                 id="19"></i></span></li>
+                            <li class="links-logo-list"><span><i class="fa fa-pinterest fa-2x change-image" id="20"></i></span>
+                            </li>
+                            <li class="links-logo-list"><span><i class="fa fa-th-large fa-2x change-image" id="21"></i></span>
+                            </li>
+                            <li class="links-logo-list"><span><i class="fa fa-align-left fa-2x change-image"
+                                                                 id="22"></i></span></li>
+                        </ul>
+                    </div>
+                    <div class="new-form">
+                        <div class="new-name">
+                            <span><i class="fa fa-hand-o-right fa-2x" id="new-name-i"></i></span>
+                            <input type="text" class="form-control" placeholder="Enter Information Name" name="new-name"
+                                   id="new-name-input" spellcheck="false" autocomplete="off" autofocus>
+                        </div>
+                        <div class="new-link">
+                            <span><i class="fa fa-hand-o-right fa-2x" id="new-link-i"></i></span>
+                            <input class="form-control" name="new-link" type="text" placeholder="Enter Text Information"
+                                   id="new-link-input" spellcheck="false" autocomplete="off" autofocus>
+                        </div>
+                    </div>
+                    <div>
+                        <p style="text-align: center;">After Saving All Links Reopen Extension .</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="save-add-another">Save and add another</button>
+                    <button type="button" class="btn btn-primary pull-left" id="save" data-dismiss="modal">Save</button>
+                    <button type="button" class="btn btn-primary pull-left" id="cancel" data-dismiss="modal">Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="text-align: center" id="message"></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="saved-links-container">
+
+    </div>
+    <hr>
+    <div class="saveit-btn-container">
+        <button type="button" id="saveit-btn" class="btn btn-success btn-group-lg"
+                style="border-radius: 25px; outline: none!important; font-size: 15px;">Saveit
+        </button>
+        <br><br>
+    </div>
+</div>
+<script src="assets/js/google_api_jquery.js"></script>
+<script src="assets/js/jquery.slimscroll.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
