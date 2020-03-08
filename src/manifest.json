@@ -1,0 +1,42 @@
+{
+  "manifest_version": 2,
+  "name": "Saveit Pasteit",
+  "description": "Offline extension which saves your important text information and provides you easy paste experience in just couple of clicks",
+  "version": "2.4.2",
+  "author": "Shubham Aggarwal",
+  "short_name": "SP",
+  "offline_enabled": false,
+  "browser_action": {
+    "default_icon": "assets/icons/48x48.png",
+    "default_popup": "popup.html",
+    "default_title": "Do you want to store important Links!"
+  },
+  "icons": {
+    "16": "assets/icons/16x16.png",
+    "48": "assets/icons/48x48.png",
+    "128": "assets/icons/128x128.png"
+  },
+  "background": {
+    "persistent": false,
+    "scripts": [
+      "assets/js/google_api_jquery.js",
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "assets/js/google_api_jquery.js",
+        "assets/js/bililiteRange.js",
+        "assets/js/jquery.sendkeys.js",
+        "content.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "contextMenus"
+  ]
+}
