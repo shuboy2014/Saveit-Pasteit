@@ -3,6 +3,7 @@ const cleanCSS = require('gulp-clean-css');
 const clean = require('gulp-clean');
 const uglify = require('gulp-uglify-es').default;
 const htmlmin = require('gulp-htmlmin');
+const watch = require('gulp-watch');
 
 gulp.task('clean', () => {
     return gulp.src('dist')
@@ -38,4 +39,8 @@ gulp.task('minify-html', () => {
 });
 
 gulp.task('copy', gulp.parallel(['copy-assets', 'copy-files']));
-gulp.task('default', gulp.series(['clean', 'copy', 'minify-styles', 'uglify-js', 'minify-html']));
+gulp.task('build', gulp.series(['clean', 'copy', 'minify-styles', 'uglify-js', 'minify-html']));
+
+gulp.task('watch', () => {
+    return watch(['src/*.js', 'src/*.css'], gulp.series(['build']));
+});

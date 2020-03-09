@@ -27,14 +27,14 @@ function getCaretPosition(element) {
 
     /* Chrome and Firefox support */
     if (!document.selection && $.inArray(element.type, types) >= 0) {
-        /*  element.selectionStart for type email give error because their is a bug in chrome */
+        //  element.selectionStart for type email give error because their is a bug in chrome
         if (element.type === 'email' || element.type === 'number') {
             caretPos = 0;
         } else {
             caretPos = element.selectionStart;
         }
     } else {
-        /* IE support */
+        // IE support
         if (document.selection) {
             element.focus();
             let sel = document.selection.createRange();
@@ -53,7 +53,7 @@ $(document).ready(function () {
         let firstPart = initValue.substr(0, caretPosition);
         let lastPart = initValue.substr(caretPosition);
 
-        /* when element type is email or number */
+        // when element type is email or number
         if (element.type === 'email' || element.type === 'number') {
             if (elementId) {
                 $("#" + elementId).sendkeys(setValue + lastPart);
@@ -63,12 +63,12 @@ $(document).ready(function () {
                 element.value = firstPart + setValue + lastPart;
             }
         } else {
-            /* when element type is other than email or number */
+            // when element type is other than email or number
 
-            /* selected text in input field */
-            var selected_text = element.value.substring(element.selectionStart, element.selectionEnd);
+            // selected text in input field
+            let selected_text = element.value.substring(element.selectionStart, element.selectionEnd);
 
-            /* if  text selected */
+            // if text selected
             if (selected_text !== '') {
                 lastPart = initValue.substr(caretPosition + selected_text.length);
             }
